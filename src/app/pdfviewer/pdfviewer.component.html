@@ -1,7 +1,13 @@
 <div style="background-color: wheat;">
   <button (click)="zoom(0.25)">Zoom In</button>
   <button (click)="zoom(-0.25)">Zoom Out</button>
-  <button (click)="testGetStream()">Get Stream</button>
-  <button (click)="Watermark()">Watermark</button>
-  <button (click)="HeaderFooter()">Header Footer</button>
+  <button (click)="setFormat('B')">B</button>
+  <button (click)="setFormat('U')">U</button>
+  <button (click)="setFormat('I')">I</button>
+  <label style="margin-left: 8px;">
+    Font:
+    <select (change)="setFormat('font', $event.target.value)">
+      <option *ngFor="let font of fonts" [value]="font.value">{{ font.label }}</option>
+    </select>
+  </label>
 </div>

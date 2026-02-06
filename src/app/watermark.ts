@@ -262,6 +262,12 @@ export class WatermarkHelper {
     const headerFooter = {
       ...initHeaderFooter,
       contents,
+      font: header?.fontName
+        ? this.getStandardFont({
+            fontName: header.fontName,
+            fontStyle: header?.fontStyle ?? 0,
+          })
+        : this.StandardFont.timesRoman,
       textSize: newFontSize,
       margin: {
         left: 5,
