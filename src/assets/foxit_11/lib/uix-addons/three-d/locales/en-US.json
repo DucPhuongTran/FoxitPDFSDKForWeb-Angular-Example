@@ -1,0 +1,16 @@
+{
+    "title": "Model Tree",
+    "tooltip": "Work with 3D Objects",
+    "createView": "Create View",
+    "deleteView": "Delete View",
+    "previewView": "Preview View",
+    "previousView": "Previous View",
+    "nextView": "Next View",
+    "defaultView": "Default View",
+    "setDefaultView": "Set as Default View",
+    "moreOptions": "More Options",
+    "property": "Property",
+    "value": "Value",
+    "noModelSelected": "No 3D model selected",
+    "noAvailableInformation": "No available information"
+}

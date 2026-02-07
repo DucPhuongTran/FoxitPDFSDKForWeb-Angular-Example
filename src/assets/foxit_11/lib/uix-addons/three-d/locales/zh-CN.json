@@ -1,0 +1,14 @@
+{
+    "title": "模型树",
+    "tooltip": "处理 3D 对象",
+    "createView": "创建视图",
+    "deleteView": "删除视图",
+    "previewView": "预览视图",
+    "previousView": "上一个视图",
+    "nextView": "下一个视图",
+    "defaultView": "默认视图",
+    "setDefaultView": "设为默认视图",
+    "moreOptions": "更多选项",
+    "property": "属性",
+    "value": "数值"
+}

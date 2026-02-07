@@ -1,12 +1,12 @@
 import { Component, OnInit, ViewEncapsulation, ElementRef } from '@angular/core';
 import license from './license-key';
 import { WatermarkHelper } from '../watermark';
-import * as UIExtension from '@foxitsoftware/foxit-pdf-sdk-for-web-library';
+import * as UIExtension from '../../assets/foxit_11/lib/UIExtension.full';
 import { APIServiceService } from '../apiservice.service';
 import { RichTextData, ExtData, AnnotJson } from '../global';
 import Util from '../util';
-import { renderers, annotCompontents, constants } from '@foxitsoftware/foxit-pdf-sdk-for-web-library/lib/PDFViewCtrl';
-import { __internal__ } from '@foxitsoftware/foxit-pdf-sdk-for-web-library/lib';
+import { renderers, annotCompontents, constants } from '../../assets/foxit_11/lib/PDFViewCtrl';
+import type { __internal__ } from '../../assets/foxit_11/lib/index';
 import { firstValueFrom } from 'rxjs';
 type AnnotRender = renderers.annotsRender.AnnotRender;
 type AnnotComponent = annotCompontents.AnnotComponent;
@@ -19,7 +19,7 @@ type AnnotComponent = annotCompontents.AnnotComponent;
 })
 export class PDFViewerComponent implements OnInit {
   private baseHref = document.baseURI;
-  public pdfui: __internal__.PDFUI | undefined;
+  public pdfui: UIExtension.PDFUI | undefined;
   WatermarkHelper = new WatermarkHelper();
   pdfInitTemplate = [
     '<webpdf>',
@@ -109,7 +109,10 @@ export class PDFViewerComponent implements OnInit {
         }],
         jr: {
           ...license,
-          fontPath: this.getBaseUrl() + '/assets/external/brotli/'
+          workerPath: `./`,
+          enginePath: `./jr-engine/gsdk`,
+          fontPath: `../external/brotli`,
+          fontInfoPath: `../external/brotli/fontInfoNew.csv`,
         },
       },
       appearance: UIExtension.appearances.adaptive,
@@ -130,7 +133,7 @@ export class PDFViewerComponent implements OnInit {
         await this.setupFont();
         this.importAnnotsFromJSON();
         const pdfViewer = await this.pdfui.getPDFViewer();
-        pdfViewer.getEventEmitter().on('active-annotation', (annotRenders: Array<__internal__.AnnotRender>) => {
+        pdfViewer.getEventEmitter().on('active-annotation', (annotRenders: AnnotRender[]) => {
           //do something
           console.log('annotRenders ', annotRenders);
         })

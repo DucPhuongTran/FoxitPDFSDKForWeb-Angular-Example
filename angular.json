@@ -25,13 +25,13 @@
               "src/assets",
               {
                 "glob": "**/*",
-                "input": "node_modules/@foxitsoftware/foxit-pdf-sdk-for-web-library/lib",
+                "input": "src/assets/foxit_11/lib",
                 "output": "/foxit-lib",
                 "ignore": ["PDFViewCtrl.js", "PDFViewCtrl.{vendor,polyfills}.js", "UIExtension.*"]
               }
             ],
             "styles": [
-              "node_modules/@foxitsoftware/foxit-pdf-sdk-for-web-library/lib/UIExtension.css",
+              "src/assets/foxit_11/lib/UIExtension.css",
               "src/styles.css"
             ],
             "scripts": []
